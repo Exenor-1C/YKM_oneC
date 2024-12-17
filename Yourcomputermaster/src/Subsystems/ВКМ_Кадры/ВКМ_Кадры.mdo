@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Subsystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="b0f7b277-fd64-40db-b08f-27385af09022">
+  <name>ВКМ_Кадры</name>
+  <synonym>
+    <key>ru</key>
+    <value>ВКМ кадры</value>
+  </synonym>
+  <includeHelpInContents>true</includeHelpInContents>
+  <includeInCommandInterface>true</includeInCommandInterface>
+  <picture xsi:type="core:PictureRef">
+    <picture>CommonPicture.ИконкаНетология</picture>
+  </picture>
+  <content>InformationRegister.ВКМ_ГрафикОтпусковПлан</content>
+  <content>Document.ВКМ_ГрафикОтпусков</content>
+  <content>DataProcessor.ВКМ_ОформлениеГрафикаРабот</content>
+  <content>DataProcessor.ВКМ_КалендарьСпециалистов</content>
+  <content>InformationRegister.ВКМ_ГрафикРабот</content>
+  <content>Catalog.ВКМ_ФизическиеЛица</content>
+  <content>InformationRegister.ВКМ_УсловияОплатыСотрудников</content>
+  <content>Report.ВКМ_РасходЗапланированныхОтпусков</content>
+</mdclass:Subsystem>

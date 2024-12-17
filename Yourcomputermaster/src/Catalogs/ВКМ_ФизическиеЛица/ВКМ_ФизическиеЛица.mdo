@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="a86cc824-a55f-4d0b-8650-c074274f2b0a">
+  <producedTypes>
+    <objectType typeId="0dc063df-9974-4852-9943-92d7d93e0318" valueTypeId="e5d69d2b-8bbb-4638-8893-3e831593b0d1"/>
+    <refType typeId="68c39635-54b9-41a0-8b8b-9f84aec32b77" valueTypeId="59e04c07-ebef-42a2-b078-c9ffe67f617d"/>
+    <selectionType typeId="82cd12d4-23f7-4c7b-9206-b7b6c5188680" valueTypeId="527a5e9d-1550-42f8-82f3-687c38578439"/>
+    <listType typeId="6bbea60e-67bc-4aaf-b447-eb30ca016c75" valueTypeId="367c092b-1714-4db0-bc21-ee05f9c3e0fd"/>
+    <managerType typeId="78bba267-0c3a-49c8-a8d2-75aa4cd3c3da" valueTypeId="3d35ef07-966e-4643-a642-407e49e282d7"/>
+  </producedTypes>
+  <name>ВКМ_ФизическиеЛица</name>
+  <synonym>
+    <key>ru</key>
+    <value>Физические лица</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <inputByString>Catalog.ВКМ_ФизическиеЛица.StandardAttribute.Code</inputByString>
+  <inputByString>Catalog.ВКМ_ФизическиеЛица.StandardAttribute.Description</inputByString>
+  <fullTextSearchOnInputByString>DontUse</fullTextSearchOnInputByString>
+  <createOnInput>Use</createOnInput>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <fullTextSearch>Use</fullTextSearch>
+  <levelCount>2</levelCount>
+  <foldersOnTop>true</foldersOnTop>
+  <codeLength>9</codeLength>
+  <descriptionLength>25</descriptionLength>
+  <codeType>String</codeType>
+  <codeAllowedLength>Variable</codeAllowedLength>
+  <checkUnique>true</checkUnique>
+  <autonumbering>true</autonumbering>
+  <defaultPresentation>AsDescription</defaultPresentation>
+  <editType>InDialog</editType>
+  <choiceMode>BothWays</choiceMode>
+  <defaultObjectForm>Catalog.ВКМ_ФизическиеЛица.Form.ФормаЭлемента</defaultObjectForm>
+  <attributes uuid="c068eae4-3185-4711-90cb-bb2e90d39f21">
+    <name>ТипЛица</name>
+    <synonym>
+      <key>ru</key>
+      <value>Тип лица</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ВКМ_ФизическиеЛица</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="0c3216f5-5e62-48cd-8d96-ddf71a18882e">
+    <name>Подразделение</name>
+    <synonym>
+      <key>ru</key>
+      <value>Подразделение</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ВКМ_ПодразделенияСотрудников</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <forms uuid="59fb0d7d-322d-4a6a-a449-d847a32bd1e6">
+    <name>ФормаЭлемента</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма элемента</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:Catalog>

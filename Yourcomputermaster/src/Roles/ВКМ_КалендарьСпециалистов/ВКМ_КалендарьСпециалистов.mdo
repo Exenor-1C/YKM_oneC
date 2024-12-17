@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Role xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="2160b8eb-d1a3-4277-8df9-dae3a34f4f9c">
+  <name>ВКМ_КалендарьСпециалистов</name>
+  <synonym>
+    <key>ru</key>
+    <value>ВКМ календарь специалистов</value>
+  </synonym>
+</mdclass:Role>
