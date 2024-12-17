@@ -7,7 +7,7 @@
   <name>ВКМ_КалендарьСпециалистов</name>
   <synonym>
     <key>ru</key>
-    <value>ВКМ календарь специалистов</value>
+    <value>Календарь специалистов</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <defaultForm>DataProcessor.ВКМ_КалендарьСпециалистов.Form.Форма</defaultForm>

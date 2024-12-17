@@ -8,7 +8,7 @@
   <name>ВКМ_ГрафикРабот</name>
   <synonym>
     <key>ru</key>
-    <value>ВКМ график работ</value>
+    <value>График работ</value>
   </synonym>
   <quickChoice>true</quickChoice>
   <choiceMode>BothWays</choiceMode>

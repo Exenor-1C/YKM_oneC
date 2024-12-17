@@ -181,7 +181,7 @@
 		</right>
 	</object>
 	<object>
-		<name>Subsystem.Бухгалтерия</name>
+		<name>Subsystem.ВКМ_Бухгалтерия</name>
 		<right>
 			<name>View</name>
 			<value>true</value>

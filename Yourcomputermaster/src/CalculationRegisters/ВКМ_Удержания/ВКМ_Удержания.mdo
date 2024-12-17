@@ -12,7 +12,7 @@
   <name>ВКМ_Удержания</name>
   <synonym>
     <key>ru</key>
-    <value>ВКМ удержания</value>
+    <value>Удержания</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <periodicity>Month</periodicity>

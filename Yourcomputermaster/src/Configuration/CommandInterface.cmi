@@ -3,8 +3,8 @@
   <subsystemsOrder>
     <subsystems>Subsystem.ПокупкиИПродажи</subsystems>
     <subsystems>Subsystem.Деньги</subsystems>
-    <subsystems>Subsystem.ОбслуживаниеКлиентов</subsystems>
-    <subsystems>Subsystem.Бухгалтерия</subsystems>
+    <subsystems>Subsystem.ВКМ_ОбслуживаниеКлиентов</subsystems>
+    <subsystems>Subsystem.ВКМ_Бухгалтерия</subsystems>
     <subsystems>Subsystem.ВКМ_Кадры</subsystems>
     <subsystems>Subsystem.Администрирование</subsystems>
   </subsystemsOrder>

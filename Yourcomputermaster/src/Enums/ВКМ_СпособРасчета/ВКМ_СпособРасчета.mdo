@@ -8,7 +8,7 @@
   <name>ВКМ_СпособРасчета</name>
   <synonym>
     <key>ru</key>
-    <value>ВКМ способ расчета</value>
+    <value>Способ расчета</value>
   </synonym>
   <quickChoice>true</quickChoice>
   <choiceMode>BothWays</choiceMode>

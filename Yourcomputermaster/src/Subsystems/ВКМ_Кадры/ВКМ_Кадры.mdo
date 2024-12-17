@@ -3,7 +3,7 @@
   <name>ВКМ_Кадры</name>
   <synonym>
     <key>ru</key>
-    <value>ВКМ кадры</value>
+    <value>Кадры</value>
   </synonym>
   <includeHelpInContents>true</includeHelpInContents>
   <includeInCommandInterface>true</includeInCommandInterface>

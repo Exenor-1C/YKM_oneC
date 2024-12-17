@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mdclass:Subsystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="4867bd9e-7f40-4aad-8fa7-8dcbf4230dfc">
-  <name>Бухгалтерия</name>
+  <name>ВКМ_Бухгалтерия</name>
   <synonym>
     <key>ru</key>
     <value>Бухгалтерия</value>

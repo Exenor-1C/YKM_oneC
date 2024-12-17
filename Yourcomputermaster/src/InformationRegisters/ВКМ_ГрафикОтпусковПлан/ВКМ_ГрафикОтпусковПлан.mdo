@@ -12,7 +12,7 @@
   <name>ВКМ_ГрафикОтпусковПлан</name>
   <synonym>
     <key>ru</key>
-    <value>ВКМ график отпусков план</value>
+    <value>График отпусков план</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <editType>InDialog</editType>

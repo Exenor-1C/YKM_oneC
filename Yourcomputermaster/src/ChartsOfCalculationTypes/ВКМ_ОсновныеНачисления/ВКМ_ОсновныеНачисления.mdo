@@ -16,7 +16,7 @@
   <name>ВКМ_ОсновныеНачисления</name>
   <synonym>
     <key>ru</key>
-    <value>ВКМ основные начисления</value>
+    <value>Основные начисления</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
   <inputByString>ChartOfCalculationTypes.ВКМ_ОсновныеНачисления.StandardAttribute.Code</inputByString>
