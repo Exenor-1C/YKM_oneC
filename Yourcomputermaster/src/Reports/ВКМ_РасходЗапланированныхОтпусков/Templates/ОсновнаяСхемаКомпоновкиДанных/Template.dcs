@@ -7,62 +7,12 @@
 	<dataSet xsi:type="DataSetQuery">
 		<name>НаборДанных1</name>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>Сотрудник</dataPath>
-			<field>Сотрудник</field>
-			<role>
-				<dcscom:dimension>true</dcscom:dimension>
-			</role>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>ДатаНачалаПлан</dataPath>
-			<field>ДатаНачалаПлан</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Дата начала план</v8:content>
-				</v8:item>
-			</title>
-			<role>
-				<dcscom:dimension>true</dcscom:dimension>
-			</role>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>ДатаОкончанияПлан</dataPath>
-			<field>ДатаОкончанияПлан</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Дата окончания план</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>ДатаНачалаФакт</dataPath>
-			<field>ДатаНачалаФакт</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Дата начала факт</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>КоличествоПлан</dataPath>
 			<field>КоличествоПлан</field>
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Количество план</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>ДатаОкончанияФакт</dataPath>
-			<field>ДатаОкончанияФакт</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Дата окончания факт</v8:content>
 				</v8:item>
 			</title>
 		</field>
@@ -89,24 +39,43 @@
 				<dcscom:dimension>true</dcscom:dimension>
 			</role>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сотрудник</dataPath>
+			<field>Сотрудник</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сотрудник</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	ВКМ_ГрафикОтпусковПлан.Сотрудник КАК Сотрудник,
 	ВКМ_ГрафикОтпусковПлан.Подразделение КАК Подразделение,
-	ВКМ_ГрафикОтпусковПлан.ДатаНачала КАК ДатаНачалаПлан,
-	ВКМ_ГрафикОтпусковПлан.ДатаОкончания КАК ДатаОкончанияПлан,
-	ВКМ_ГрафикОтпусковПлан.КоличествоДней КАК КоличествоПлан,
-	ВКМ_ОсновоныеНачисленияБазаВКМ_ОсновоныеНачисления.ПериодДействияНачало КАК ДатаНачалаФакт,
-	ВКМ_ОсновоныеНачисленияБазаВКМ_ОсновоныеНачисления.ПериодДействияКонец КАК ДатаОкончанияФакт,
-	РАЗНОСТЬДАТ(ВКМ_ОсновоныеНачисленияБазаВКМ_ОсновоныеНачисления.ПериодДействияНачало, ВКМ_ОсновоныеНачисленияБазаВКМ_ОсновоныеНачисления.ПериодДействияКонец, ДЕНЬ) КАК КоличествоФакт
+	ВКМ_ГрафикОтпусковПлан.КоличествоДней КАК КоличествоДней
+ПОМЕСТИТЬ ВТ_План
 ИЗ
 	РегистрСведений.ВКМ_ГрафикОтпусковПлан КАК ВКМ_ГрафикОтпусковПлан
-		ЛЕВОЕ СОЕДИНЕНИЕ РегистрРасчета.ВКМ_ОсновоныеНачисления.БазаВКМ_ОсновоныеНачисления(&amp;Измерение, &amp;Измерение, , ВидРасчета = &amp;Отпуск) КАК ВКМ_ОсновоныеНачисленияБазаВКМ_ОсновоныеНачисления
-		ПО (ВКМ_ГрафикОтпусковПлан.Сотрудник = ВКМ_ОсновоныеНачисленияБазаВКМ_ОсновоныеНачисления.Сотрудник)
-			И (ВКМ_ГрафикОтпусковПлан.Подразделение = ВКМ_ОсновоныеНачисленияБазаВКМ_ОсновоныеНачисления.Подразделение)
 ГДЕ
 	ВКМ_ГрафикОтпусковПлан.ДатаНачала МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
-	И ВКМ_ГрафикОтпусковПлан.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания</query>
+	И ВКМ_ГрафикОтпусковПлан.ДатаОкончания МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ЕСТЬNULL(ВТ_План.Сотрудник, ВКМ_ОсновоныеНачисленияБазаВКМ_ОсновоныеНачисления.Сотрудник) КАК Сотрудник,
+	ЕСТЬNULL(ВТ_План.Подразделение, ВКМ_ОсновоныеНачисленияБазаВКМ_ОсновоныеНачисления.Подразделение) КАК Подразделение,
+	РАЗНОСТЬДАТ(ВКМ_ОсновоныеНачисленияБазаВКМ_ОсновоныеНачисления.ПериодДействияНачало, ВКМ_ОсновоныеНачисленияБазаВКМ_ОсновоныеНачисления.ПериодДействияКонец, ДЕНЬ) + 1 КАК КоличествоФакт,
+	ВТ_План.КоличествоДней КАК КоличествоПлан
+ИЗ
+	ВТ_План КАК ВТ_План
+		ПОЛНОЕ СОЕДИНЕНИЕ РегистрРасчета.ВКМ_ОсновоныеНачисления.БазаВКМ_ОсновоныеНачисления(&amp;Измерение, &amp;Измерение, , ВидРасчета = &amp;Отпуск) КАК ВКМ_ОсновоныеНачисленияБазаВКМ_ОсновоныеНачисления
+		ПО ВТ_План.Сотрудник = ВКМ_ОсновоныеНачисленияБазаВКМ_ОсновоныеНачисления.Сотрудник
+			И ВТ_План.Подразделение = ВКМ_ОсновоныеНачисленияБазаВКМ_ОсновоныеНачисления.Подразделение</query>
 	</dataSet>
 	<totalField>
 		<dataPath>КоличествоПлан</dataPath>
@@ -209,18 +178,6 @@
 		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
 		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
 			<dcsset:selection>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>ДатаНачалаПлан</dcsset:field>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>ДатаНачалаФакт</dcsset:field>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>ДатаОкончанияПлан</dcsset:field>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>ДатаОкончанияФакт</dcsset:field>
-				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>КоличествоПлан</dcsset:field>
 				</dcsset:item>

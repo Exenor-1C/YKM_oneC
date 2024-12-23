@@ -10,17 +10,7 @@
     <value>Выработка специалистов</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
-  <defaultForm>Report.ВКМ_ВыработкаСпециалистов.Form.ФормаОтчета</defaultForm>
   <mainDataCompositionSchema>Report.ВКМ_ВыработкаСпециалистов.Template.ОсновнаяСхемаКомпоновкиДанных</mainDataCompositionSchema>
-  <forms uuid="31326df9-783a-4fa1-80e9-86ed7a06589d">
-    <name>ФормаОтчета</name>
-    <synonym>
-      <key>ru</key>
-      <value>Форма отчета</value>
-    </synonym>
-    <usePurposes>PersonalComputer</usePurposes>
-    <usePurposes>MobileDevice</usePurposes>
-  </forms>
   <templates uuid="b7a76572-5a3b-4741-9329-7aca469ddf70">
     <name>ОсновнаяСхемаКомпоновкиДанных</name>
     <synonym>

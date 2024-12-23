@@ -10,17 +10,7 @@
     <value>Анализ выставленных актов</value>
   </synonym>
   <useStandardCommands>true</useStandardCommands>
-  <defaultForm>Report.ВКМ_АнализВыставленныхАктов.Form.ФормаОтчета</defaultForm>
   <mainDataCompositionSchema>Report.ВКМ_АнализВыставленныхАктов.Template.ОсновнаяСхемаКомпоновкиДанных</mainDataCompositionSchema>
-  <forms uuid="406ee983-ce14-40ff-a36f-eab8723c35e3">
-    <name>ФормаОтчета</name>
-    <synonym>
-      <key>ru</key>
-      <value>Форма отчета</value>
-    </synonym>
-    <usePurposes>PersonalComputer</usePurposes>
-    <usePurposes>MobileDevice</usePurposes>
-  </forms>
   <templates uuid="da570c19-c6a6-48b6-87d7-6773cc96c51e">
     <name>ОсновнаяСхемаКомпоновкиДанных</name>
     <synonym>

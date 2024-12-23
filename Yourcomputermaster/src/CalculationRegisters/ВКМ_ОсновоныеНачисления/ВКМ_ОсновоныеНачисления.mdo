@@ -71,19 +71,6 @@
     <fullTextSearch>Use</fullTextSearch>
     <scheduleLink>InformationRegister.ВКМ_ГрафикРабот.Dimension.ГрафикРабот</scheduleLink>
   </attributes>
-  <dimensions uuid="a1662623-ffd8-4348-ab4a-03bf95c53ba1">
-    <name>Сотрудник</name>
-    <synonym>
-      <key>ru</key>
-      <value>Сотрудник</value>
-    </synonym>
-    <type>
-      <types>CatalogRef.ВКМ_ФизическиеЛица</types>
-    </type>
-    <minValue xsi:type="core:UndefinedValue"/>
-    <maxValue xsi:type="core:UndefinedValue"/>
-    <fullTextSearch>Use</fullTextSearch>
-  </dimensions>
   <dimensions uuid="414e286e-5062-495d-8238-13d68c715704">
     <name>Подразделение</name>
     <synonym>
@@ -92,6 +79,19 @@
     </synonym>
     <type>
       <types>CatalogRef.ВКМ_ПодразделенияСотрудников</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </dimensions>
+  <dimensions uuid="a1662623-ffd8-4348-ab4a-03bf95c53ba1">
+    <name>Сотрудник</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сотрудник</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ВКМ_ФизическиеЛица</types>
     </type>
     <minValue xsi:type="core:UndefinedValue"/>
     <maxValue xsi:type="core:UndefinedValue"/>
