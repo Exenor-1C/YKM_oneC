@@ -21,28 +21,18 @@
 			</role>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>Контрагент</dataPath>
-			<field>Контрагент</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>СуммаКОплатеОборот</dataPath>
 			<field>СуммаКОплатеОборот</field>
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сумма к оплате Оборот</v8:content>
+					<v8:content>Сумма к оплате</v8:content>
 				</v8:item>
 			</title>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>СуммаАБ</dataPath>
-			<field>СуммаАБ</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Сумма абонентской платы</v8:content>
-				</v8:item>
-			</title>
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Номенклатура</dataPath>
@@ -51,33 +41,66 @@
 				<dcscom:dimension>true</dcscom:dimension>
 			</role>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Заказ</dataPath>
+			<field>Заказ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаАБ</dataPath>
+			<field>СуммаАБ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма АБ</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
-	ВКМ_ВыполненныеКлиентуРаботыОбороты.Клиент КАК Клиент,
 	ВКМ_ВыполненныеКлиентуРаботыОбороты.Договор КАК Договор,
-	ЕСТЬNULL(ВКМ_ВыполненныеКлиентуРаботыОбороты.СуммаКОплатеОборот, 0) КАК СуммаКОплатеОборот
+	ЕСТЬNULL(ВКМ_ВыполненныеКлиентуРаботыОбороты.СуммаКОплатеОборот, 0) КАК СуммаКОплатеОборот,
+	ВКМ_ВыполненныеКлиентуРаботыОбороты.Клиент КАК Контрагент,
+	&amp;НоменклатураПусстая КАК Номенклатура,
+	0 КАК СуммаОборот
 ПОМЕСТИТЬ ВТ_ВыполненныеРаботы
 ИЗ
 	РегистрНакопления.ВКМ_ВыполненныеКлиентуРаботы.Обороты КАК ВКМ_ВыполненныеКлиентуРаботыОбороты
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ОбработкаЗаказовОбороты.Договор,
+	0,
+	ПродажиОбороты.Контрагент,
+	ПродажиОбороты.Номенклатура,
+	ЕСТЬNULL(ПродажиОбороты.СуммаОборот, 0)
+ИЗ
+	РегистрНакопления.Продажи.Обороты(, , , Номенклатура = &amp;Номенклатура) КАК ПродажиОбороты
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ОбработкаЗаказов.Обороты КАК ОбработкаЗаказовОбороты
+		ПО ПродажиОбороты.Контрагент = ОбработкаЗаказовОбороты.Контрагент
 ;
 
 ////////////////////////////////////////////////////////////////////////////////
 ВЫБРАТЬ
-	ВТ_ВыполненныеРаботы.Клиент КАК Клиент,
 	ВТ_ВыполненныеРаботы.Договор КАК Договор,
-	ВТ_ВыполненныеРаботы.СуммаКОплатеОборот КАК СуммаКОплатеОборот,
-	ЕСТЬNULL(ПродажиОбороты.СуммаОборот, 0) КАК СуммаАБ,
-	ПродажиОбороты.Номенклатура КАК Номенклатура
-{ВЫБРАТЬ
-	Клиент.*,
-	Договор.*,
-	СуммаКОплатеОборот,
-	СуммаАБ}
+	СУММА(ВТ_ВыполненныеРаботы.СуммаКОплатеОборот) КАК СуммаКОплатеОборот,
+	МИНИМУМ(ВТ_ВыполненныеРаботы.Контрагент) КАК Клиент,
+	МАКСИМУМ(ВТ_ВыполненныеРаботы.Номенклатура) КАК Номенклатура,
+	СУММА(ВТ_ВыполненныеРаботы.СуммаОборот) КАК СуммаАБ
 ИЗ
 	ВТ_ВыполненныеРаботы КАК ВТ_ВыполненныеРаботы
-		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.Продажи.Обороты(, , , Номенклатура = &amp;Номенклатура) КАК ПродажиОбороты
-		ПО ВТ_ВыполненныеРаботы.Клиент = ПродажиОбороты.Контрагент</query>
+
+СГРУППИРОВАТЬ ПО
+	ВТ_ВыполненныеРаботы.Договор</query>
 	</dataSet>
+	<totalField>
+		<dataPath>СуммаАБ</dataPath>
+		<expression>Сумма(СуммаАБ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаКОплатеОборот</dataPath>
+		<expression>Сумма(СуммаКОплатеОборот)</expression>
+	</totalField>
 	<parameter>
 		<name>Номенклатура</name>
 		<title xsi:type="v8:LocalStringType">
@@ -147,6 +170,20 @@
 		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
 		<useRestriction>true</useRestriction>
 		<expression>&amp;ПериодЗапрос.ДатаОкончания</expression>
+	</parameter>
+	<parameter>
+		<name>НоменклатураПусстая</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Номенклатура пусстая</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Номенклатура</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.Номенклатура.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
 	</parameter>
 	<settingsVariant>
 		<dcsset:name>Основной</dcsset:name>
